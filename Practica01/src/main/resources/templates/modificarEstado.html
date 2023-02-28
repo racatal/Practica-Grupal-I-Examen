@@ -1,0 +1,33 @@
+
+<html>
+    <head>
+        <title>Estados</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h2>Datos del Estado</h2>
+        <br/>
+        <a th:href="@{/}">Regresar</a>
+        <br/>
+        <form th:action="@{/guardarEstado}"
+              method="POST"
+              th:object="${estado}">
+            <input type="hidden" name="idEstado" th:field="*{idEstado}" />
+            <label for="nombre">Nombre:</label><br/>
+            <input type="text" name="nombre" th:field="{nombre}" />
+            
+            <label for="capital">Capital:</label><br/>
+            <input type="text" name="capital" th:field="{capital}" />
+            
+            <label for="poblacion">Poblacion:</label><br/>
+            <input type="text" name="poblacion" th:field="{poblacion}" />
+            
+            <label for="costas">Costas:</label><br/>
+            <input type="text" name="costas" th:field="{costas}" />
+            
+            <input type="submit" name="Guardar" value="Guardar"/>
+        </form>
+        <footer th:replace="layout/plantilla :: footer"/>
+    </body>
+</html>
