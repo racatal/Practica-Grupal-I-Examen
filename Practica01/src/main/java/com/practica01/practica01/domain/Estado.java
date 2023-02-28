@@ -4,6 +4,11 @@
  */
 package com.practica01.practica01.domain;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.Data;
 
 /**
@@ -11,9 +16,15 @@ import lombok.Data;
  * @author manul
  */
 @Data
+@Entity
+@Table(name="estado")
 public class Estado {
-
-    String estado;
+    
+    private static final long serialVersionUID = 1L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long idEstado;
+    String nombre;
     String capital;
     String poblacion;
     String costas;
@@ -22,7 +33,7 @@ public class Estado {
     }
 
     public Estado(String estado, String capital, String poblacion, String costas) {
-        this.estado = estado;
+        this.nombre = nombre;
         this.capital = capital;
         this.poblacion = poblacion;
         this.costas = costas;
